@@ -51,3 +51,36 @@ function procesar (browser: "firefox" | "edge") {
 }
 procesar ("firefox")
 //procesar("chrome")
+
+//Cursor hacia una función
+function calcularRectArea (base: number, altura: number) {
+  return base*altura/2
+}
+
+function printResultado (result:number) {
+  console.log("Resultado: " + result)
+}
+
+let calculo: Function = calcularRectArea;
+console.log(calculo(2, 5))
+
+//Función calcular área triángulo, utilizando una enum para pasarle los valores iniciales de la base y de la altura del triángulo. Función para mostrar resultado por consola
+
+enum valores {base=100, altura=20};
+
+function calcularAreaTrian(base: number, altura: number){
+  return base * altura / 2
+}
+let calculo2: Function = calcularAreaTrian
+console.log(calculo2(valores.base, valores.altura))
+
+let valores2:[number,number] = [valores.base, valores.altura]
+console.log(calculo2(valores2[0], valores2[1]))
+
+
+
+
+function calculoAlumno (color_pelo: "negro" | "rubio", edad: 14 | 15 | 16){
+  console.log(`Color de pelo: ${color_pelo} y edad ${edad}`)
+}
+calculoAlumno("negro", 15)
