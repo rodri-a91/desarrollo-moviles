@@ -9,12 +9,12 @@ export class Places {
             id: '1',
             title: 'Torre Eiffel',
             imageURL: 'https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=800&q=80',
-            comments: ['Maravillosa torre, preciosa', 'una belleza, impresionante altura']
+            comments: ['Maravillosa torre, preciosa', 'Una belleza, impresionante altura']
         },
         {
             id: '2',
             title: 'Estatua de la libertad',
-            imageURL: 'https://images.unsplash.com/photo-1543731068-7e0f5beff43a?auto=format&fit=crop&w=800&q=80',
+            imageURL: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Statue_of_Liberty%2C_NY.jpg',
             comments: ['Increíbles vistas desde la bahía', 'Las vistas desde arriba son una pasada']
         },
         {
@@ -67,7 +67,7 @@ export class Places {
         })
     }
 
-    deletePlace(placeId: string) {
+    deletePlace(placeId: string | undefined) {
         this.places = this.places.filter(p => { return p.id != placeId})
     }
 }

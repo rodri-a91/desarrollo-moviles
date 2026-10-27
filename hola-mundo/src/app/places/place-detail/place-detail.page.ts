@@ -1,5 +1,6 @@
+/* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Places } from '../places';
 import { place } from '../place.model'
 
@@ -11,16 +12,21 @@ import { place } from '../place.model'
   standalone: false,
 })
 export class PlaceDetailPage implements OnInit {
-  private place?: place 
 
-  constructor(private activatedRouted: ActivatedRoute, private placesService: Places) { }
+  place: place = { id: '', title: '', imageURL: '', comments: [] };
+
+  constructor(private activatedRouted: ActivatedRoute, private placesService: Places, private router: Router) { }
 
   ngOnInit() {
     this.activatedRouted.paramMap.subscribe(paramMap => {
       const recipeId = paramMap.get('placeID')
-      this.place=this.placesService.getPlace(recipeId)
-      console.log(recipeId)
+      this.place = this.placesService.getPlace(recipeId)
+      console.log('Objeto: ' + JSON.stringify(this.place))
     })
+  }
+  deletePlace() {
+    this.placesService.deletePlace(this.place.id)
+    this.router.navigate(['/places'])
   }
 
 }
