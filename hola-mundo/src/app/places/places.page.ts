@@ -1,8 +1,9 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
-import { Places } from './places';
+import { Places } from './placeService';
 import { place } from './place.model'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class PlacesPage implements OnInit {
   places: place[] = []
 
 
-  constructor(private placeService: Places) { }
+  constructor(private placeService: Places, private router: Router) { }
 
 
   //Método que se ejecuta al abrir la página por primera vez
@@ -27,5 +28,9 @@ export class PlacesPage implements OnInit {
   //Método que se ejecuta cada vez que se abre esta página
   ionViewWillEnter() {
     this.places = this.placeService.getPlaces()
+  }
+
+  newPlace() {
+    this.router.navigate(['/places/place-add'])
   }
 }

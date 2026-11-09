@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/places"></ion-back-button>
+    </ion-button>
+    <ion-title>{{titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-input placeholder="Escribe un título" type="text" #title></ion-input>
+        <ion-input placeholder="Escribe la url" type="text" #image></ion-input>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-button color="primary" (click)="saveNewPlace(title,image)">Guardar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
