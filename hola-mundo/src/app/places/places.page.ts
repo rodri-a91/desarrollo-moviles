@@ -1,4 +1,3 @@
-/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
 import { Places } from './placeService';
@@ -32,5 +31,9 @@ export class PlacesPage implements OnInit {
 
   newPlace() {
     this.router.navigate(['/places/place-add'])
+  }
+
+  goToHome() {
+    this.router.navigate(['home'])
   }
 }
